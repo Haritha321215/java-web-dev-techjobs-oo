@@ -25,6 +25,10 @@ public class Job {
     }
 
     public String getName() {
+        if(name=="")
+        {
+            name="Data is not available";
+        }
         return name;
     }
 
@@ -32,7 +36,10 @@ public class Job {
         this.name = name;
     }
 
-    public Employer getEmployer() {
+    public JobField getEmployer() {
+        if(employer.getValue()=="" || employer.getValue()==null){
+            employer.setValue("Data is not available");
+        }
         return employer;
     }
 
@@ -41,6 +48,9 @@ public class Job {
     }
 
     public Location getLocation() {
+        if(location.getValue()==""){
+            location.setValue("Data is not available");
+        }
         return location;
     }
 
@@ -49,6 +59,9 @@ public class Job {
     }
 
     public PositionType getPositionType() {
+        if(positionType.getValue()==""){
+            positionType.setValue("Data is not available");
+        }
         return positionType;
     }
 
@@ -57,6 +70,9 @@ public class Job {
     }
 
     public CoreCompetency getCoreCompetency() {
+        if(coreCompetency.getValue()==""){
+            coreCompetency.setValue("Data is not available");
+        }
         return coreCompetency;
     }
 
@@ -78,6 +94,11 @@ public class Job {
     @Override
     public int hashCode() {
         return Objects.hash(getId());
+    }
+
+    public String toString(){
+           return "\nID: " + getId()+"\nName: "+getName()+"\nEmployer: "+getEmployer()+"\nLocation: "+getLocation()
+                    +"\nPositionType: "+ getPositionType()+"\nCoreCompetency: "+getCoreCompetency()+"\n";
     }
     // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
